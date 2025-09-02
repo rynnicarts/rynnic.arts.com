@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rynnic.arts | Turning Vibes Into Arts 📸</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #000, #333);
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .brand-info h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .brand-info p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .social-media {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .social-icon:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    nav {
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 25px;
+      font-size: 0.9rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #4ecdc4;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #111;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #000 0%, #333 50%, #666 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="90" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .service-card h3 {
+      color: #333;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .service-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    blockquote {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      position: relative;
+      border-left: 4px solid #4ecdc4;
+    }
+
+    blockquote::before {
+      content: '"';
+      font-size: 4rem;
+      color: #4ecdc4;
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      opacity: 0.3;
+    }
+
+    .contact-section {
+      background: white;
+      border-radius: 15px;
+      padding: 3rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #000, #333);
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .footer-social {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav a {
+        margin-right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo">R</div>
+        <div class="brand-info">
+          <h1>Rynnic.arts</h1>
+          <p>Turning Vibes Into Arts 📸</p>
+        </div>
+      </div>
+      
+      <div class="social-media">
+        <a href="https://instagram.com/rynnic.arts" class="social-icon" title="Instagram">📷</a>
+        <a href="https://twitter.com/rynnicarts" class="social-icon" title="Twitter">🐦</a>
+        <a href="https://tiktok.com/@rynnic.arts" class="social-icon" title="TikTok">🎵</a>
+        <a href="https://facebook.com/rynnic.arts" class="social-icon" title="Facebook">📘</a>
+      </div>
+    </div>
+    
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#enquiry">Enquiry</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to Rynnic.arts</h2>
+    <p>Creative photo edits and unique digital art since 2020</p>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p style="text-align: center; font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto;">
+      I started editing photos in 2020, turning simple moments into powerful visual art. 
+      At Rynnic.arts, every picture is more than an image — it's a vibe captured and 
+      transformed into art.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <h3>Creative Photo Editing</h3>
+        <p>Transform your ordinary photos into extraordinary visual masterpieces with our unique editing techniques and artistic vision.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Retouching & Color Grading</h3>
+        <p>Professional retouching and color grading services to enhance your images and create the perfect mood and atmosphere.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📷</div>
+        <h3>Artistic Transformations</h3>
+        <p>Turn your photos into stunning digital art pieces with our creative transformation techniques and artistic expertise.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🌟</div>
+        <h3>Custom Creative Projects</h3>
+        <p>Bespoke creative solutions tailored to your specific needs, from concept to completion with unlimited revisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials-container">
+      <blockquote>
+        "Rynnic.arts transformed my basic photo into a masterpiece! The attention to detail and creative vision is unmatched. Highly recommended for anyone looking to elevate their visual content."
+        <br><strong>— Client A</strong>
+      </blockquote>
+      <blockquote>
+        "Very creative and professional. My pictures came out stunning and exceeded all my expectations. The turnaround time was quick and the communication was excellent throughout the process."
+        <br><strong>— Client B</strong>
+      </blockquote>
+      <blockquote>
+        "I love the unique artistic touch. Every edit feels magical and brings out emotions I didn't know were captured in the original photo. Truly talented artist!"
+        <br><strong>— Client C</strong>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="enquiry">
+    <h2>Get In Touch</h2>
+    <div class="contact-section">
+      <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+        Ready to transform your photos into art? Fill out the form below to enquire about our services 👇
+      </p>
+      <center>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfn3WkES8biCvZFmDbP6l7qBWOwnd81UAh7cwAWB1HXzK6Mwg/viewform?embedded=true" width="640" height="2472" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </center>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Rynnic.arts | Turning Vibes Into Arts 📸</p>
+    <div class="footer-social">
+      <a href="http://www.instagram.com/rynnic.arts?igsh=MTdtDV1am4zeHZkMQ==" class="social-icon" title="Follow us on Instagram">📷</a>
+      <a href="https://twitter.com/rynnicarts" class="social-icon" title="Follow us on Twitter">🐦</a>
+      <a href="http://tiktok.com/@rynnic.arts" class="social-icon" title="Follow us on TikTok">🎵</a>
+      <a href=https://wa.me/+254741779191" class="social-icon" title="Like us on whatsapp">📘</a>
+    </div>
+  </footer>
+</body>
+</html>
